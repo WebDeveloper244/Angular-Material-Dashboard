@@ -1,0 +1,19 @@
+<mat-sidenav-container class="sidenav-container" opened>
+    <mat-sidenav #sidenav mode="side" class="sidenav" (closedStart)="onSidenavClose()" opened>
+        <div class="side-nav-content">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active nav-list-item" routerLink="./dashboard">dashboard</a>
+                  <a class="nav-link active nav-list-item" routerLink="./analytics">analytics</a>
+                  <a class="nav-link active nav-list-item" >Home</a>
+                </li>
+            </ul>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-content" [ngClass]="{'full-width': isSidenavClosed}">
+        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,52 @@
+
+<div class="container mt-5" id="container">
+	<div class="form-container sign-up-container">
+		<form (ngSubmit)="submitRegisterForm()" [formGroup]="registerForm">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<input type="text" placeholder="Name" formControlName="adminName"/>
+			<!-- validation -->
+            <div class="error  text-danger"
+                        *ngIf="registerForm.controls['adminName'].invalid && (registerForm.controls['adminName'].dirty || registerForm.controls['adminName'].touched)">
+                        <span *ngIf="registerForm.controls['adminName'].errors.required">
+                            <small>Field Required!</small>
+                        </span>
+                    </div>
+            <!-- validation -->
+			<input type="email" placeholder="Email" formControlName="adminEmail"/>
+			<!-- validation -->
+			<div class="error  text-danger"
+			*ngIf="registerForm.controls['adminEmail'].invalid && (registerForm.controls['adminEmail'].dirty || registerForm.controls['adminEmail'].touched)">
+			<span *ngIf="registerForm.controls['adminEmail'].errors.email">
+				<small>Use correct pattern as example@example.com</small></span>
+			<span *ngIf="registerForm.controls['adminEmail'].errors.required">
+				<small>Field Required!</small>
+			</span>
+		</div>
+		<!-- validation -->
+			<input type="password" placeholder="Password" formControlName="adminPassword"/>
+			<!-- validation -->
+            <div class="error  text-danger"
+          *ngIf="registerForm.controls['adminPassword'].invalid && (registerForm.controls['adminPassword'].dirty || registerForm.controls['adminPassword'].touched)">
+          <span *ngIf="registerForm.controls['adminPassword'].errors.required">
+            <small>Field Required!</small>
+          </span>
+        </div>
+            <!-- validation -->
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1>Welcome Back!</h1>
+				<p>if you are already sign-up then go to sign-in page</p>
+				<button class="ghost" routerLink="../sign-in"id="signIn">Sign In</button>
+			</div>
+		</div>
+	</div>
+</div>
